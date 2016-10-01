@@ -13,4 +13,4 @@ $(TARGET).o: $(OBJS)
 	$(LD) $(LD_RFLAGS) -r -o $@ $(OBJS)
 
 clean:
-	-rm -f *.o *.o.cmd *.ko.cmd *mod.c *.ko modules.order  Module.symvers 
+	make -C $(KDIR) SUBDIRS=$(PWD) clean	
