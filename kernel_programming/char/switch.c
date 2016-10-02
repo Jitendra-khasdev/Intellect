@@ -21,10 +21,11 @@ struct file_operations switch_fops = {
 
 static int switch_init(void)
 {
-	int ret = 0;
+	int Major = 0;
 
-	ret = register_chrdev(0, "Switch Driver", &switch_fops);
+	Major = register_chrdev(0, "Switch Driver", &switch_fops);
 	printk("Device is initialized\n");
+	printk("Major number is %d \n", Major);
 	return 0;
 }
 
@@ -36,3 +37,7 @@ static void switch_cleanup(void)
 
 module_init(switch_init);
 module_exit(switch_cleanup);
+
+MODULE_LICENSE("GPL");
+MODULE_DESCRIPTION("Basic Char Switch Driver");
+MODULE_AUTHOR("Jitendra Khasdev");
