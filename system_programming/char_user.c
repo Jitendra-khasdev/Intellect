@@ -11,9 +11,8 @@ int main()
 	int fd, wr_count;
 
 	fd = open("/dev/switch", O_RDWR);
-
 	wr_count = write(fd, "hello", sizeof("hello"));
-
+	
 	if (wr_count > 0)
 		return printf("%d", wr_count) ;
 	else

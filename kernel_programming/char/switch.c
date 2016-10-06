@@ -1,14 +1,21 @@
 #include <linux/module.h>
 #include <linux/fs.h>
+#include <linux/uaccess.h>
 
 ssize_t switch_read (struct file *file, char __user *usr_buffer, size_t size, loff_t *offset)
 {
+	
 	printk("You are in the read of swtich\n");
 	return 0;
 }
 
 ssize_t switch_write (struct file *file, const char __user *usr_buffer, size_t size, loff_t *offset)
 {
+	char data[15];	
+
+	if (copy_from_user(&data, usr_buffer, size)) {
+	}
+	printk("Copy from the user buffer ###%s###", data);
 	printk("You are in the write of swicth\n");
 	return 0;
 }
