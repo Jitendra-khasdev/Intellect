@@ -1,71 +1,72 @@
 //factory managment*********************
 //header files
-#include<iostream.h>
-#include<conio.h>
-#include<fstream.h>
-#include<process.h>
-#include<stdio.h>
-#include<dos.h>
+#include<iostream>
+#include<fstream>
+
+using namespace std;
+
 class factory                //class
 {
+
 private:
-	  int num1,num2,num3,num4,num5,num6;        //variable decleareation
-	  int a_coast,p_coast,salary,ad_coast,sec_coast,m_coast;
-	  int dd,mm,yy,dd1,mm1,yy1,dd2,mm2,yy2;
-	  char g_name[20],d_name[20],ad_name[20],sec_name[20];
-	  char r_name[20],w_name[20];
-	  char m_name[20];
-	  int flag;
+	int num1,num2,num3,num4,num5,num6;        //variable decleareation
+	int a_coast,p_coast,salary,ad_coast,sec_coast,m_coast;
+	int dd,mm,yy,dd1,mm1,yy1,dd2,mm2,yy2;
+	char g_name[20],d_name[20],ad_name[20],sec_name[20];
+	char r_name[20],w_name[20];
+	char m_name[20];
+	int flag;
 public:
-     void removef();
-     void sales();
-     void purchase();
-     void worker();
-     void maintenance();
-     void ad();                 //fuctions
-     void secure();
-     void display();
-     void modify();
-    // void total coast();
+	void removef();
+	void sales();
+	void purchase();
+	void worker();
+	void maintenance();
+	void ad();                 //fuctions
+	void secure();
+	void display();
+	void modify();
+	// void total coast();
 };
-	void factory:: removef()
-	{
+
+void factory:: removef()
+{
 	int x=1;
-	cout<<"\n\n\n\n\n                   File is removing\n\n\n";
-		while(x<20)
-		{
+	cout<<"\n\n\n\n\nFile is removing\n\n\n";
+	while(x < 20) {
 		cout<<"!   " ;
 		delay(750);
 		x++;
-		}
+	}
 	remove("fact.txt");
 	cout<<"\n\n\n\n\n\n\n\t\tFile Deleted";
-	}
-	void factory::sales()             //fuction coding
-	{
-	clrscr();
-	cout<<"\nEnter No.= ";
-	cin>>num1;
-	cout<<"\nName of the garment  ";
-	gets(g_name);
-	cout<<"\nName of delear  ";
-	gets(d_name);
-	cout<<"\nDate of selling  ";
-	cout<<"\nDay=   ";
-	cin>>dd;
-	cout<<"\nMonth= ";
-	cin>>mm;
-	cout<<"\nEnter year=  ";
-	cin>>yy;
-	cout<<"\nTotal coast of selling  ";
-	cin>>a_coast;
-	flag=1;
-	fstream file;
-	file.open("fact.txt",ios::out|ios::app|ios::binary) ;
-	file.write((char*)this,sizeof(factory));
-	file.close();
-	cout<<"\n Record is saved";
-       }
+}
+
+void factory::sales()             //fuction coding
+{
+clrscr();
+cout<<"\nEnter No.= ";
+cin>>num1;
+cout<<"\nName of the garment  ";
+gets(g_name);
+cout<<"\nName of delear  ";
+gets(d_name);
+cout<<"\nDate of selling  ";
+cout<<"\nDay=   ";
+cin>>dd;
+cout<<"\nMonth= ";
+cin>>mm;
+cout<<"\nEnter year=  ";
+cin>>yy;
+cout<<"\nTotal coast of selling  ";
+cin>>a_coast;
+flag=1;
+fstream file;
+file.open("fact.txt",ios::out|ios::app|ios::binary) ;
+file.write((char*)this,sizeof(factory));
+file.close();
+cout<<"\n Record is saved";
+}
 
 	void factory::purchase()
 	{
